@@ -19,8 +19,9 @@
     
         .header {
         display: flex;
-        justify-content: space-between; /* This pushes content to opposite ends */
-        align-items: center; /* This centers items vertically */
+        flex-direction: row; /* Explicitly set row direction */
+        justify-content: flex-start; /* Start items from the left */
+        align-items: center; /* Center items vertically */
         margin-bottom: 30px;
         padding-bottom: 20px;
         border-bottom: 2px solid #ccc;
@@ -31,8 +32,22 @@
         padding-right: 20px;
         }
     
+        .header-image {
+        flex-shrink: 0; /* Prevent image from shrinking */
+        margin-right: 30px; /* Add spacing between image and text */
+        order: 1; /* Ensure image comes first */
+        }
+    
+        .header-image img {
+        max-width: 240px;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+        }
+    
         .header-text {
-        max-width: 70%; /* Allow more space for text */
+        flex: 1; /* Allow text to take remaining space */
+        order: 2; /* Ensure text comes second */
         }
     
         header h1 {
@@ -47,17 +62,6 @@
         color: #666;
         text-align: left;
         margin-bottom: 0; /* Reduce bottom margin to keep tight with heading */
-        }
-    
-        .header-image {
-        flex-shrink: 0; /* Prevent image from shrinking */
-        }
-    
-        .header-image img {
-        max-width: 240px;
-        height: auto;
-        border-radius: 10px;
-        display: block;
         }
         
         section {
@@ -143,7 +147,11 @@
     
         .header-text {
             max-width: 100%;
-            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    
+        .header-image {
+            margin-right: 0;
         }
         }
     </style>
@@ -151,7 +159,8 @@
 <body>
   <header>
     <div class="header-text">
-      <h1>Glitch as Intention: The Wabi-Sabi of AI Art</h1>
+      <h1>Glitch as Intention:</h1>
+      <h1>The Wabi-Sabi of AI Art</h1>
       <p>by Leong Kuan Yew</p>
     </div>
     <div class="header-image">
