@@ -15,13 +15,13 @@ Glitch as Intention addresses the above gaps by identifying and categorizing ten
 * Analog distortions from hardware malfunctions,
 * Pixel scrambling,
 * Digital dithering,
-Data moshing,
-Video frame skips/tearing,
-Data compression artifacts,
-Color banding,
-Digital channel shifts,
-Noise and grain,
-Over-exposure, and
-Combination of all the above
+* Data moshing,
+* Video frame skips/tearing,
+* Data compression artifacts,
+* Color banding,
+* Digital channel shifts,
+* Noise and grain,
+* Over-exposure, and
+* Combination of all the above
 
 To illustrate the impact of each glitch type, we present a curated AI-generated artwork corresponding to each category. This structured approach not only provides a novel perspective on the interplay between computational errors and digital aesthetics but also establishes a foundation for future explorations in glitch-inspired AI artistry.
