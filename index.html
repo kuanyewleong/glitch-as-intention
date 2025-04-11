@@ -33,7 +33,7 @@
     max-width: 1000px;
     margin: auto;
     }
-    
+
     .header {
     display: flex;
     justify-content: space-between;
@@ -61,6 +61,19 @@
     }
 
     .header-image {
+    max-width: 1000px;     /* Matches the body content width */
+    margin: 0 auto 30px;   /* Center horizontally + add bottom spacing */
+    padding: 0 20px;       /* Same padding as body for consistency */
+    }
+
+    .header-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    }
+
+    /* .header-image {
       max-width: 200px;
     }
 
@@ -68,7 +81,7 @@
       width: 100%;
       height: auto;
       border-radius: 10px;
-    }
+    } */
 
     section {
       padding: 3rem 2rem;
