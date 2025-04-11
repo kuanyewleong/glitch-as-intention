@@ -1,171 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Art Gallery | Leong Kuan Yew</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>AI Art Gallery - Beautiful Things</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    /* Reset */
+    * {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
       background-color: #fdfdfd;
-      color: #333;
+      color: #222;
       line-height: 1.6;
-    }
-
-    header {
-      background-color: #ffffff;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #666;
-    }
-
-    section {
-      padding: 3rem 2rem;
+      padding: 20px;
       max-width: 1000px;
       margin: auto;
     }
 
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    /* Title Section */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
     }
 
+    .header h1 {
+      font-size: 2.5em;
+    }
+
+    .header img {
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    /* Gallery Section */
     .gallery {
       column-count: 2;
-      column-gap: 2rem;
+      column-gap: 20px;
     }
 
     .artwork {
       break-inside: avoid;
-      margin-bottom: 2rem;
-      background-color: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
-
-    .artwork:hover {
-      transform: translateY(-5px);
+      margin-bottom: 20px;
     }
 
     .artwork img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 8px;
     }
 
     .caption {
-      padding: 1rem;
-      font-size: 1rem;
-      color: #444;
-      text-align: center;
+      font-style: italic;
+      font-size: 0.9em;
+      margin-top: 5px;
+      color: #666;
     }
 
+    /* Artist Profile */
     .profile {
       display: flex;
       align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
     }
 
     .profile img {
-      width: 180px;
-      height: 180px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .profile-info {
-      flex: 1;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #aaa;
-      font-size: 0.9rem;
+      border: 2px solid #ccc;
     }
 
     @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .gallery {
         column-count: 1;
+      }
+
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>AI Art Gallery</h1>
-    <p>by Leong Kuan Yew</p>
-  </header>
 
+  <!-- Header -->
+  <div class="header">
+    <h1>Beautiful Things – AI Art Gallery</h1>
+    <img src="images/logo.png" alt="Gallery Logo">
+  </div>
+
+  <!-- Introduction -->
   <section>
-    <h2>Introduction</h2>
-    <p>This gallery showcases the convergence of human creativity and machine intelligence. Each artwork is generated or enhanced through a synergy between deep learning algorithms and traditional artistic sensibilities.</p>
-    <p>The aim is to provoke thought about the boundaries of authorship, imagination, and the creative potential of artificial intelligence in the visual arts.</p>
-
-    <h2>Conceptual Approach</h2>
-    <p>The pieces presented here stem from experiments with style transfer, generative adversarial networks (GANs), diffusion models, and fine-tuned models trained on thematic datasets.</p>
-    <p>Various themes—from nature and surrealism to symmetry and abstraction—are explored through these works to reflect the diversity and depth of AI-generated creativity.</p>
+    <p>
+      Welcome to the AI Art Gallery: Beautiful Things. This digital space showcases a curated selection of artworks created through the intersection of machine learning and aesthetic curiosity.
+    </p>
+    <p>
+      The pieces reflect a fusion of algorithmic generation and human curation, blurring the lines between artificial and artistic expression.
+    </p>
   </section>
 
+  <!-- Conceptual Approach -->
+  <section>
+    <h2>Conceptual Approach</h2>
+    <p>
+      Each piece in the gallery emerges from a process that treats generative models as creative partners. Rather than instructing them, the work arises from listening to their latent suggestions and shaping them through iterative refinement.
+    </p>
+  </section>
+
+  <!-- Gallery -->
   <section>
     <h2>Gallery</h2>
     <div class="gallery">
       <div class="artwork">
-        <img src="images/art1.jpg" alt="AI-generated art 1">
-        <div class="caption">"Digital Dreams" — Created using GANs and color morphing techniques</div>
+        <img src="images/art1.jpg" alt="Artwork 1">
+        <div class="caption">"Dreamscape 001" – Generated with StyleGAN2</div>
       </div>
       <div class="artwork">
-        <img src="images/art2.jpg" alt="AI-generated art 2">
-        <div class="caption">"Synthetic Bloom" — An exploration of neural textures in flora</div>
+        <img src="images/art2.jpg" alt="Artwork 2">
+        <div class="caption">"Floral Rebirth" – VQGAN + CLIP exploration</div>
       </div>
       <div class="artwork">
-        <img src="images/art3.jpg" alt="AI-generated art 3">
-        <div class="caption">"Reflections in Latent Space" — Mirror symmetry in generative art</div>
+        <img src="images/art3.jpg" alt="Artwork 3">
+        <div class="caption">"Digital Monoliths" – Diffusion-based synthesis</div>
       </div>
       <div class="artwork">
-        <img src="images/art4.jpg" alt="AI-generated art 3">
-        <div class="caption">"Reflections in Latent Space" — Mirror symmetry in generative art</div>
+        <img src="images/art4.jpg" alt="Artwork 4">
+        <div class="caption">"Synthetic Forests" – GAN landscape impressions</div>
       </div>
     </div>
   </section>
 
+  <!-- Method -->
   <section>
     <h2>Methodology</h2>
-    <p>Most works were generated using pretrained GANs such as StyleGAN2 and Diffusion-based frameworks like Stable Diffusion. Some were fine-tuned with custom prompts and curated image datasets.</p>
-    <p>Post-processing techniques were applied to balance textures, colors, and structural harmony—merging algorithmic precision with human aesthetic judgment.</p>
+    <p>
+      The works were created using a combination of generative adversarial networks (GANs), diffusion models, and prompt-guided transformers. Post-processing techniques in Photoshop and traditional curation principles were applied to finalize each composition.
+    </p>
   </section>
 
+  <!-- Artist Profile -->
   <section>
     <h2>About the Artist</h2>
     <div class="profile">
-      <img src="images/profile.jpg" alt="Leong Kuan Yew">
-      <div class="profile-info">
-        <p><strong>Leong Kuan Yew</strong> is a multidisciplinary artist and AI researcher based in Kyoto. With a background in machine learning and visual design, his work explores the intersection of artificial intelligence and creative expression.</p>
-        <p>He has exhibited in various digital and virtual galleries, aiming to bridge the gap between computational logic and emotional resonance through visual storytelling.</p>
+      <img src="images/artist.jpg" alt="Artist Profile">
+      <div>
+        <p>
+          Leong Kuan Yew is a researcher and visual experimenter exploring the frontiers of computational creativity. His work combines AI systems with conceptual frameworks drawn from media theory, philosophy, and design.
+        </p>
       </div>
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 Leong Kuan Yew. All rights reserved.
-  </footer>
 </body>
 </html>
