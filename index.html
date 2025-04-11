@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Art Gallery | Leong Kuan Yew</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header-text {
+      max-width: 60%;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+      text-align: left;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #666;
+      text-align: left;
+    }
+
+    .header-image {
+      max-width: 200px;
+    }
+
+    .header-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: auto;
+      gap: 2rem;
+      padding-top: 2rem;
+    }
+
+    .artwork {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .artwork:hover {
+      transform: translateY(-5px);
+    }
+
+    .artwork img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption {
+      padding: 1rem;
+      font-size: 1rem;
+      color: #444;
+      text-align: center;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .profile img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header-text {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-text">
+      <h1>AI Art Gallery</h1>
+      <p>by Leong Kuan Yew</p>
+    </div>
+    <div class="header-image">
+      <img src="images/header.jpg" alt="Gallery Header Image">
+    </div>
+  </header>
+
+  <section>
+    <h2>Introduction</h2>
+    <p>This gallery showcases the convergence of human creativity and machine intelligence. Each artwork is generated or enhanced through a synergy between deep learning algorithms and traditional artistic sensibilities.</p>
+    <p>The aim is to provoke thought about the boundaries of authorship, imagination, and the creative potential of artificial intelligence in the visual arts.</p>
+
+    <h2>Conceptual Approach</h2>
+    <p>The pieces presented here stem from experiments with style transfer, generative adversarial networks (GANs), diffusion models, and fine-tuned models trained on thematic datasets.</p>
+    <p>Various themes—from nature and surrealism to symmetry and abstraction—are explored through these works to reflect the diversity and depth of AI-generated creativity.</p>
+  </section>
+
+  <section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div class="artwork">
+        <img src="images/art1.jpg" alt="AI-generated art 1">
+        <div class="caption">"Digital Dreams" — Created using GANs and color morphing techniques</div>
+      </div>
+      <div class="artwork">
+        <img src="images/art2.jpg" alt="AI-generated art 2">
+        <div class="caption">"Synthetic Bloom" — An exploration of neural textures in flora</div>
+      </div>
+      <div class="artwork">
+        <img src="images/art3.jpg" alt="AI-generated art 3">
+        <div class="caption">"Reflections in Latent Space" — Mirror symmetry in generative art</div>
+      </div>
+      <div class="artwork">
+        <img src="images/art4.jpg" alt="AI-generated art 4">
+        <div class="caption">"Dreams of Geometry" — A blend of abstraction and algorithmic balance</div>
+      </div>
+      <div class="artwork">
+        <img src="images/art5.jpg" alt="AI-generated art 5">
+        <div class="caption">"Neural Skyline" — A topographical exploration of machine vision</div>
+      </div>
+      <div class="artwork">
+        <img src="images/art6.jpg" alt="AI-generated art 6">
+        <div class="caption">"Echoes of Code" — Synthesized shapes from latent vectors</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Methodology</h2>
+    <p>Most works were generated using pretrained GANs such as StyleGAN2 and Diffusion-based frameworks like Stable Diffusion. Some were fine-tuned with custom prompts and curated image datasets.</p>
+    <p>Post-processing techniques were applied to balance textures, colors, and structural harmony—merging algorithmic precision with human aesthetic judgment.</p>
+  </section>
+
+  <section>
+    <h2>About the Artist</h2>
+    <div class="profile">
+      <img src="images/profile.jpg" alt="Leong Kuan Yew">
+      <div class="profile-info">
+        <p><strong>Leong Kuan Yew</strong> is a multidisciplinary artist and AI researcher based in Kyoto. With a background in machine learning and visual design, his work explores the intersection of artificial intelligence and creative expression.</p>
+        <p>He has exhibited in various digital and virtual galleries, aiming to bridge the gap between computational logic and emotional resonance through visual storytelling.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Leong Kuan Yew. All rights reserved.
+  </footer>
+</body>
+</html>
