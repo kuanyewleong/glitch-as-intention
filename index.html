@@ -34,6 +34,15 @@
     margin: auto;
     }
 
+    /* .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    } */
+
     .header {
     display: flex;
     justify-content: space-between;
@@ -41,6 +50,11 @@
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 2px solid #ccc;
+    max-width: 1000px;      /* Ensures it doesn't overflow main body */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
     }
 
     .header-text {
@@ -52,6 +66,7 @@
       font-size: 2.5rem;
       margin-bottom: 0.3rem;
       text-align: left;
+      margin-right: 20px;     /* Add some spacing between text and image */
     }
 
     header p {
@@ -61,15 +76,11 @@
     }
 
     .header-image {
-    max-width: 1000px;    /* Same as body */
-    margin: 0 auto 30px;  /* Center container horizontally, with bottom spacing */
-    padding: 0 20px;      /* Matches body side padding */
-    text-align: left;     /* Align contents (image) to the left */
+    flex-shrink: 0;
     }
 
     .header-image img {
-    width: auto;           /* Let it keep its natural width */
-    max-width: 100%;       /* Don’t overflow the container */
+    max-width: 120px;       /* Control image size */
     height: auto;
     border-radius: 10px;
     display: block;
