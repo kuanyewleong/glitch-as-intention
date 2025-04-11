@@ -19,9 +19,8 @@
     
         .header {
         display: flex;
-        flex-direction: row; /* Ensure items are in a row */
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-between; /* This pushes content to opposite ends */
+        align-items: center; /* This centers items vertically */
         margin-bottom: 30px;
         padding-bottom: 20px;
         border-bottom: 2px solid #ccc;
@@ -33,8 +32,7 @@
         }
     
         .header-text {
-        flex: 1; /* Allow text to take available space */
-        max-width: 60%;
+        max-width: 70%; /* Allow more space for text */
         }
     
         header h1 {
@@ -42,19 +40,17 @@
         font-size: 2.5rem;
         margin-bottom: 0.3rem;
         text-align: left;
-        display: inline-block; /* Keep title in line */
         }
     
         header p {
         font-size: 1.1rem;
         color: #666;
         text-align: left;
+        margin-bottom: 0; /* Reduce bottom margin to keep tight with heading */
         }
     
         .header-image {
-        flex-shrink: 0;
-        margin-left: 20px; /* Add spacing between text and image */
-        align-self: center; /* Center image vertically */
+        flex-shrink: 0; /* Prevent image from shrinking */
         }
     
         .header-image img {
@@ -148,10 +144,6 @@
         .header-text {
             max-width: 100%;
             margin-bottom: 20px;
-        }
-        
-        .header-image {
-            margin-left: 0;
         }
         }
     </style>
