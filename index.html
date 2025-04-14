@@ -8,150 +8,154 @@
     <style>   
     
         body {
-        font-family: 'Helvetica Neue', sans-serif;
-        background-color: #fdfdfd;
-        color: #222;
-        line-height: 1.6;
-        padding: 20px;
-        max-width: 1000px;
-        margin: auto;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #fdfdfd;
+            color: #222;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
         }
     
         .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-        padding-bottom: 20px;
-        border-bottom: 2px solid #ccc;
-        max-width: 1000px;      /* Ensures it doesn't overflow main body */
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 20px;
-        padding-right: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
         }
     
         .header-image {
-        flex-shrink: 0; /* Prevent image from shrinking */        
+            flex-shrink: 0;
         }
     
         .header-image img {
-        max-width: 240px;
-        height: auto;
-        border-radius: 10px;
-        display: block;
+            max-width: 240px;
+            height: auto;
+            border-radius: 10px;
+            display: block;
         }
     
         .header-text {
-        flex: 1; /* Allow text to take remaining space */
-        order: 2; /* Ensure text comes second */
+            flex: 1;
+            order: 2;
         }
     
         header h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        margin-bottom: 0.3rem;
-        text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.3rem;
+            text-align: left;
         }
     
         header p {
-        font-size: 1.1rem;
-        color: #666;
-        text-align: left;
-        margin-bottom: 0; /* Reduce bottom margin to keep tight with heading */
+            font-size: 1.1rem;
+            color: #666;
+            text-align: left;
+            margin-bottom: 0;
         }
-        
+    
         section {
-        padding: 3rem 2rem;
-        max-width: 1000px;
-        margin: auto;
+            padding: 3rem 2rem;
+            max-width: 100%;
+            width: 90%;
+            margin: auto;
         }
     
         section h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2rem;
-        margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
     
-        .gallery {      
-        column-count: 2;
-        column-gap: 2rem;
+        .gallery {
+            column-count: 2;
+            column-gap: 2rem;
+            width: 100%;
         }
     
         .artwork {
-        background-color: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease;
-        break-inside: avoid;
-        margin-bottom: 30px; /* Increased spacing between rows */
-        padding-bottom: 10px; /* Optional extra breathing space */
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            break-inside: avoid;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            width: 100%;
         }
     
         .artwork:hover {
-        transform: translateY(-5px);
+            transform: translateY(-5px);
         }
     
         .artwork img {
-        width: 100%;
-        height: auto;
-        display: block;
+            width: 100%;
+            height: auto;
+            display: block;
         }
     
         .caption {
-        padding: 1rem;
-        font-size: 1rem;
-        color: #444;
-        text-align: center;
-        }
-    
-        .profile {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-        }
-    
-        .profile img {
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-    
-        .profile-info {
-        flex: 1;
-        }
-    
-        footer {
-        text-align: center;
-        padding: 2rem;
-        color: #aaa;
-        font-size: 0.9rem;
-        }
-    
-        @media (max-width: 768px) {
-        .gallery {
-            grid-template-columns: 1fr;
-        }
-    
-        .header {
-            flex-direction: column;
+            padding: 1rem;
+            font-size: 1rem;
+            color: #444;
             text-align: center;
         }
     
-        .header-text {
-            max-width: 100%;
-            margin-top: 20px;
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
     
-        .header-image {
-            margin-left: 0;
+        .profile img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+    
+        .profile-info {
+            flex: 1;
         }
-    </style>
+    
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    
+        @media (max-width: 768px) {
+            .gallery {
+                column-count: 1;
+            }
+    
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+    
+            .header-text {
+                max-width: 100%;
+                margin-top: 20px;
+            }
+    
+            .header-image {
+                margin-left: 0;
+            }
+        }
+    
+    </style>    
 </head>
 <body>
     <header class="header">
