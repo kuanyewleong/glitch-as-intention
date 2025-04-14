@@ -105,25 +105,26 @@
             margin-bottom: 30px;
             padding-bottom: 10px;
             width: 100%;
+            position: relative; /* Added for positioning the tooltip */
         }
-    
+
         .artwork:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(21, 94, 57, 0.3); /* dark green glow */
         }
-    
+
         .artwork img {
             width: 100%;
             height: auto;
             display: block;
             cursor: pointer;
-            position: relative;
         }
-    
-        .artwork img::after {
+
+        /* New tooltip element */
+        .artwork::after {
             content: "Click to enlarge";
             position: absolute;
-            top: 10px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(31, 41, 55, 0.85); /* deep grey */
@@ -135,11 +136,12 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
             white-space: nowrap;
+            z-index: 10; /* Ensure it appears above the image */
         }
-    
-        .artwork:hover img::after {
+
+        .artwork:hover::after {
             opacity: 1;
-        }    
+        }
        
         .caption {
         margin-top: 5px;
