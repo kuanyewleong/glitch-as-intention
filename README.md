@@ -25,3 +25,6 @@ Glitch as Intention addresses the above gaps by identifying and categorizing ten
 * Combination of all the above
 
 To illustrate the impact of each glitch type, we present a curated AI-generated artwork corresponding to each category. This structured approach not only provides a novel perspective on the interplay between computational errors and digital aesthetics but also establishes a foundation for future explorations in glitch-inspired AI artistry.
+
+Visit the full project here:
+https://kuanyewleong.github.io/glitch-as-intention/
