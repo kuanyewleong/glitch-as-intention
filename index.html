@@ -109,6 +109,30 @@
             width: 100%;
             height: auto;
             display: block;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .artwork img::after {
+            content: "Click to enlarge";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(75, 61, 42, 0.85);
+            color: #EAE1D6;
+            padding: 4px 10px;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        /* Container hover state triggers tooltip */
+        .artwork:hover img::after {
+            opacity: 1;
         }
     
         .caption {
