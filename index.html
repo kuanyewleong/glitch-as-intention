@@ -168,9 +168,54 @@
                 margin-left: 0;
             }
         }
+
+        /* modal overlay that displays the full-size image */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(75, 61, 42, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            border: 4px solid #A8B400;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #EAE1D6;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .close-button:hover {
+            color: #A8B400;
+        }
+
     </style>        
 </head>
 <body>
+    <div id="imgModal" class="modal">
+        <button id="modalClose" class="close-button">&times;</button>
+        <img class="modal-content" id="modalImage" src="" alt="Enlarged Artwork">
+    </div>
     <header class="header">
         <div class="header-image">
           <img src="https://github.com/kuanyewleong/glitch-as-intention/blob/main/media_source/japanese_cup_kintsugi_edited.png?raw=true" alt="Gallery Header Image">
@@ -242,5 +287,20 @@
     &copy; 2025 Leong Kuan Yew. All rights reserved.
     <p>See license: <a href="https://github.com/kuanyewleong/glitch-as-intention?tab=License-1-ov-file#readme" target="_blank">CC BY-NC-SA 4.0</a></p>
   </footer>
+
+  <script>
+    document.querySelectorAll('.artwork img').forEach(img => {
+        img.addEventListener('click', function () {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = this.src;
+        });
+    });
+    
+    document.getElementById('modalClose').addEventListener('click', function () {
+        document.getElementById('imgModal').style.display = 'none';
+    });
+  </script>    
 </body>
 </html>
