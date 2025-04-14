@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Glitch as Intention | The Wabi-Sabi of AI Art</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
-    <style>   
+    <style>
         body {
             font-family: 'Georgia', serif;
-            background-color: #EAE1D6;
-            color: #4B3D2A;
+            background-color: #F3F4F6; /* Light grey */
+            color: #1F2933; /* Dark charcoal */
             line-height: 1.6;
             padding: 20px;
             max-width: 1000px;
             margin: auto;
         }
-
+    
         h1 {
-        font-size: 2rem;
+            font-size: 2rem;
         }
-
+    
         h3 {
-        font-size: calc(2rem * 0.85);
+            font-size: calc(2rem * 0.85);
         }
     
         .header {
@@ -30,7 +30,7 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #D9C6B2;
+            border-bottom: 2px solid #374151; /* dark grey */
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
@@ -53,14 +53,14 @@
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #4B3D2A;
+            color: #0B3D2E; /* dark green */
             margin-bottom: 0.3rem;
             text-align: left;
         }
     
         header p {
             font-size: 1.1rem;
-            color: #6E5F4A;
+            color: #4B5563; /* medium-dark grey */
             text-align: left;
             margin-bottom: 0;
         }
@@ -70,15 +70,17 @@
             max-width: 100%;
             width: 90%;
             margin: auto;
-            background-color: #F6F2EB;
+            background-color: #FFFFFF; /* white */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
     
         section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #4B3D2A;
-            border-left: 6px solid #A8B400;
+            color: #0B3D2E; /* dark green */
+            border-left: 6px solid #14532D; /* darker green */
             padding-left: 10px;
         }
     
@@ -89,10 +91,10 @@
         }
     
         .artwork {
-            background-color: #FFF;
+            background-color: #FFFFFF;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(75, 61, 42, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s ease;
             break-inside: avoid;
             margin-bottom: 30px;
@@ -102,7 +104,7 @@
     
         .artwork:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(168, 180, 0, 0.4); /* A8B400 glow */
+            box-shadow: 0 6px 12px rgba(21, 94, 57, 0.3); /* dark green glow */
         }
     
         .artwork img {
@@ -112,15 +114,15 @@
             cursor: pointer;
             position: relative;
         }
-
+    
         .artwork img::after {
             content: "Click to enlarge";
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(75, 61, 42, 0.85);
-            color: #EAE1D6;
+            background-color: rgba(31, 41, 55, 0.85); /* deep grey */
+            color: #F3F4F6; /* light text */
             padding: 4px 10px;
             font-size: 0.85rem;
             border-radius: 6px;
@@ -129,8 +131,7 @@
             transition: opacity 0.3s ease;
             white-space: nowrap;
         }
-
-        /* Container hover state triggers tooltip */
+    
         .artwork:hover img::after {
             opacity: 1;
         }
@@ -138,9 +139,9 @@
         .caption {
             padding: 1rem;
             font-size: 1rem;
-            color: #4B3D2A;
+            color: #1F2933;
             text-align: center;
-            background-color: #C2D6A6;
+            background-color: #D1D5DB; /* light grey */
         }
     
         .profile {
@@ -148,7 +149,7 @@
             align-items: center;
             gap: 2rem;
             flex-wrap: wrap;
-            background-color: #D9C6B2;
+            background-color: #E5E7EB;
             padding: 1.5rem;
             border-radius: 12px;
         }
@@ -163,13 +164,13 @@
     
         .profile-info {
             flex: 1;
-            color: #4B3D2A;
+            color: #1F2933;
         }
     
         footer {
             text-align: center;
             padding: 2rem;
-            color: #6E5F4A;
+            color: #4B5563;
             font-size: 0.9rem;
         }
     
@@ -192,8 +193,7 @@
                 margin-left: 0;
             }
         }
-
-        /* modal overlay that displays the full-size image */
+    
         .modal {
             display: none;
             position: fixed;
@@ -203,37 +203,36 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(75, 61, 42, 0.9);
+            background-color: rgba(17, 24, 39, 0.9); /* very dark grey */
             justify-content: center;
             align-items: center;
         }
-
+    
         .modal-content {
             max-width: 90%;
             max-height: 90%;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
             border-radius: 12px;
-            border: 4px solid #A8B400;
+            border: 4px solid #14532D; /* rich green */
         }
-
+    
         .close-button {
             position: absolute;
             top: 30px;
             right: 40px;
             font-size: 2rem;
             font-weight: bold;
-            color: #EAE1D6;
+            color: #F3F4F6;
             background: none;
             border: none;
             cursor: pointer;
             z-index: 1000;
         }
-
+    
         .close-button:hover {
-            color: #A8B400;
+            color: #10B981; /* teal green */
         }
-
-    </style>        
+    </style>            
 </head>
 <body>
     <div id="imgModal" class="modal">
