@@ -294,6 +294,27 @@
             line-height: 1.5;
         }
 
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+
         @media (max-width: 768px) {
             .modal-container {
                 flex-direction: column;
@@ -310,12 +331,13 @@
                 max-height: 40vh;
             }
         }
-
     </style>            
 </head>
 <body>
     <div id="imgModal" class="modal">
         <button id="modalClose" class="close-button">&times;</button>
+        <button class="nav-button prev-button" id="modalPrev">&#10094;</button>
+        <button class="nav-button next-button" id="modalNext">&#10095;</button>
         <div class="modal-container">
             <img class="modal-content" id="modalImage" src="" alt="Enlarged Artwork">
             <div class="modal-caption">
@@ -385,6 +407,7 @@
 
   <section>    
     <h2 id="gallery">Gallery</h2>
+    <p>(*you may click the image to enlarge for improved visual*)</p>
     <div class="gallery">
       <div class="artwork">
         <img src="https://github.com/kuanyewleong/glitch-as-intention/blob/main/media_source/Echoes%20of%20the%20Digital%20Tempest2.jpg?raw=true" alt="Echoes of the Digital Tempest">
@@ -567,29 +590,45 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.artwork img').forEach(img => {
-        img.addEventListener('click', function () {
-            const modal = document.getElementById('imgModal');
-            const modalImg = document.getElementById('modalImage');
-            const modalCaptionTitle = document.getElementById('modalCaptionTitle');
-            const modalCaptionText = document.getElementById('modalCaptionText');
+    const artworks = document.querySelectorAll('.artwork');
+    let currentIndex = 0;
 
-            modal.style.display = 'flex';
-            modalImg.src = this.src;
+    function showModal(index) {
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaptionTitle = document.getElementById('modalCaptionTitle');
+        const modalCaptionText = document.getElementById('modalCaptionText');
 
-            const captionContainer = this.parentElement.querySelector('.caption');
-            const captionTitle = captionContainer.querySelector('.caption-title').innerText;
-            const captionText = captionContainer.innerHTML
-                .replace(captionContainer.querySelector('.caption-title').outerHTML, '').trim();
+        const img = artworks[index].querySelector('img');
+        const captionContainer = artworks[index].querySelector('.caption');
+        const captionTitle = captionContainer.querySelector('.caption-title').innerText;
+        const captionText = captionContainer.innerHTML
+            .replace(captionContainer.querySelector('.caption-title').outerHTML, '').trim();
 
-            modalCaptionTitle.innerText = captionTitle;
-            modalCaptionText.innerHTML = captionText;
-        });
+        modalImg.src = img.src;
+        modalCaptionTitle.innerText = captionTitle;
+        modalCaptionText.innerHTML = captionText;
+        modal.style.display = 'flex';
+        currentIndex = index;
+    }
+
+    document.querySelectorAll('.artwork img').forEach((img, index) => {
+        img.addEventListener('click', () => showModal(index));
     });
 
-    document.getElementById('modalClose').addEventListener('click', function () {
+    document.getElementById('modalClose').addEventListener('click', () => {
         document.getElementById('imgModal').style.display = 'none';
     });
-  </script>    
+
+    document.getElementById('modalPrev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+        showModal(currentIndex);
+    });
+
+    document.getElementById('modalNext').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % artworks.length;
+        showModal(currentIndex);
+    });
+  </script>
 </body>
 </html>
