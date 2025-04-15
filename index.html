@@ -258,12 +258,71 @@
         .close-button:hover {
             color: #10B981; /* teal green */
         }
+        
+        .modal-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .modal-content {
+            max-width: 60%;
+            max-height: 90vh;
+            border-radius: 8px;
+        }
+
+        .modal-caption {
+            max-width: 35%;
+            color: #F3F4F6;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        .modal-caption-title {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .modal-caption p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .modal-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-content,
+            .modal-caption {
+                max-width: 90%;
+            }
+
+            .modal-caption {
+                margin-top: 15px;
+                max-height: 40vh;
+            }
+        }
+
     </style>            
 </head>
 <body>
     <div id="imgModal" class="modal">
         <button id="modalClose" class="close-button">&times;</button>
-        <img class="modal-content" id="modalImage" src="" alt="Enlarged Artwork">
+        <div class="modal-container">
+            <img class="modal-content" id="modalImage" src="" alt="Enlarged Artwork">
+            <div class="modal-caption">
+                <span class="modal-caption-title" id="modalCaptionTitle"></span>
+                <p id="modalCaptionText"></p>
+            </div>
+        </div>
     </div>
     <header class="header">
         <div class="header-image">
@@ -512,11 +571,22 @@
         img.addEventListener('click', function () {
             const modal = document.getElementById('imgModal');
             const modalImg = document.getElementById('modalImage');
+            const modalCaptionTitle = document.getElementById('modalCaptionTitle');
+            const modalCaptionText = document.getElementById('modalCaptionText');
+
             modal.style.display = 'flex';
             modalImg.src = this.src;
+
+            const captionContainer = this.parentElement.querySelector('.caption');
+            const captionTitle = captionContainer.querySelector('.caption-title').innerText;
+            const captionText = captionContainer.innerHTML
+                .replace(captionContainer.querySelector('.caption-title').outerHTML, '').trim();
+
+            modalCaptionTitle.innerText = captionTitle;
+            modalCaptionText.innerHTML = captionText;
         });
     });
-    
+
     document.getElementById('modalClose').addEventListener('click', function () {
         document.getElementById('imgModal').style.display = 'none';
     });
