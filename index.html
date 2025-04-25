@@ -24,12 +24,29 @@
     <style>
         body {
             font-family: 'Georgia', serif;
-            background-color: #F3F4F6; /* Light grey */
-            color: #1F2933; /* Dark charcoal */
+            color: #1F2933;
             line-height: 1.6;
             padding: 20px;
             max-width: 1000px;
             margin: auto;
+            position: relative;
+            z-index: 1;
+            background-color: #F3F4F6; /* fallback if image fails */
+            overflow-x: hidden;
+        }
+
+        /* Background image layer */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: url('your-image-url.jpg') no-repeat center center / cover;
+            opacity: 0.15; /* adjust to your liking */
+            z-index: -1; /* keep it behind all content */
+            pointer-events: none; /* allow interactions with content */
         }
     
         h1 {
