@@ -405,6 +405,33 @@
         details[open] summary::after {
             content: "➖";
         }
+
+        .floating-nav {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+
+        .floating-nav button {
+            background-color: #14532D; /* dark green */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .floating-nav button:hover {
+            background-color: #10B981; /* teal green */
+        }
     </style>            
 </head>
 <body>
@@ -519,7 +546,7 @@
     <p class="highlight-quote">"In this interplay between human and machine, between imperfection and intention, we glimpse an aesthetic that is neither purely artificial nor entirely natural. It is a digital Wabi-Sabi—a quiet acceptance of the incomplete, the fleeting, and the beautifully flawed."</p> 
   </section>
 
-  <section>    
+  <section id="gallery">    
     <h2 id="gallery">Gallery</h2>
     <p>(*you may click the image to enlarge for improved visual*)</p>
     <div class="gallery">
@@ -712,7 +739,7 @@
     </details>
   </section>
   
-  <section>
+  <section id="about-artist">
     <h2>About the Artist</h2>
     <div class="profile">
       <img src="https://raw.githubusercontent.com/kuanyewleong/glitch-as-intention/refs/heads/main/media_source/author_pic.jpg" alt="Leong Kuan Yew">
@@ -784,6 +811,25 @@
             }
         });
         });
-    </script>  
+    </script>
+    
+    <div class="floating-nav">
+        <button onclick="scrollToSection('top')" title="Back to Top">🔝</button>
+        <button onclick="scrollToSection('gallery')" title="Go to Gallery">🖼</button>
+        <button onclick="scrollToSection('about-artist')" title="Go to Author">🧑‍🎨</button>
+    </div>
+
+    <script>
+        function scrollToSection(id) {
+          if (id === 'top') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const target = document.getElementById(id);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }
+    </script>
 </body>
 </html>
