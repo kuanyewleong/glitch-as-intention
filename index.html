@@ -763,47 +763,51 @@
         const artworks = document.querySelectorAll('.artwork');
         const floatingNav = document.querySelector('.floating-nav');
         let currentIndex = 0;
-    
+
         function showModal(index) {
         const modal = document.getElementById('imgModal');
         const modalImg = document.getElementById('modalImage');
         const modalCaptionTitle = document.getElementById('modalCaptionTitle');
         const modalCaptionText = document.getElementById('modalCaptionText');
-    
+
         const img = artworks[index].querySelector('img');
         const captionContainer = artworks[index].querySelector('.caption');
         const captionTitle = captionContainer.querySelector('.caption-title').innerText;
         const captionText = captionContainer.innerHTML
             .replace(captionContainer.querySelector('.caption-title').outerHTML, '').trim();
-    
+
         modalImg.src = img.src;
         modalCaptionTitle.innerText = captionTitle;
         modalCaptionText.innerHTML = captionText;
-    
+
         modal.style.display = 'flex';
-        floatingNav.style.opacity = '0'; // 🔴 HIDE buttons
+        floatingNav.style.display = 'none'; // hide when modal is shown
         currentIndex = index;
         }
-    
-        document.querySelectorAll('.artwork img').forEach((img, index) => {
-        img.addEventListener('click', () => showModal(index));
+
+        // Click to open modal
+        artworks.forEach((art, index) => {
+        art.querySelector('img').addEventListener('click', () => showModal(index));
         });
-    
+
+        // Close button restores nav
         document.getElementById('modalClose').addEventListener('click', () => {
         document.getElementById('imgModal').style.display = 'none';
-        floatingNav.style.opacity = '1'; // ✅ SHOW buttons again
+        floatingNav.style.display = 'flex'; // restore when modal closes
         });
-    
+
+        // Navigation does not restore buttons
         document.getElementById('modalPrev').addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
-        showModal(currentIndex);
+        showModal(currentIndex); // stays hidden
         });
-    
+
         document.getElementById('modalNext').addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % artworks.length;
-        showModal(currentIndex);
+        showModal(currentIndex); // stays hidden
         });
-    </script>  
+    </script>
+    
 
     <script>
         const detailBlocks = document.querySelectorAll("section#philosophy details");
