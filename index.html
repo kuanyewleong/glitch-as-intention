@@ -417,20 +417,23 @@
         }
 
         .floating-nav button {
-            background-color: #14532D; /* dark green */
-            color: white;
+            background-color: rgba(20, 83, 45, 0.85); /* rich semi-transparent green */
+            color: #F3F4F6;
             border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            font-size: 1.2rem;
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-style: italic;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            white-space: nowrap;
         }
 
         .floating-nav button:hover {
-            background-color: #10B981; /* teal green */
+            background-color: #10B981; /* soft teal glow */
+            transform: translateY(-2px);
         }
     </style>            
 </head>
@@ -814,9 +817,9 @@
     </script>
     
     <div class="floating-nav">
-        <button onclick="scrollToSection('top')" title="Back to Top">🔝</button>
-        <button onclick="scrollToSection('gallery')" title="Go to Gallery">🖼</button>
-        <button onclick="scrollToSection('about-artist')" title="Go to Author">🧑‍🎨</button>
+        <button onclick="scrollToSection('top')" title="Back to Top">Back to Top</button>
+        <button onclick="scrollToSection('gallery')" title="Go to Gallery">Go to Gallery</button>
+        <button onclick="scrollToSection('about-artist')" title="Go to Author">Meet the Author</button>
     </div>
 
     <script>
