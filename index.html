@@ -758,47 +758,52 @@
     &copy; 2025 Leong Kuan Yew. See license: <a href="https://github.com/kuanyewleong/glitch-as-intention?tab=License-1-ov-file#readme" target="_blank">CC BY-NC-SA 4.0</a>
   </footer>
 
-  <script>
-    const artworks = document.querySelectorAll('.artwork');
-    let currentIndex = 0;
-
-    function showModal(index) {
+    <script>
+        const artworks = document.querySelectorAll('.artwork');
+        const floatingNav = document.querySelector('.floating-nav-text');
+        let currentIndex = 0;
+    
+        function showModal(index) {
         const modal = document.getElementById('imgModal');
         const modalImg = document.getElementById('modalImage');
         const modalCaptionTitle = document.getElementById('modalCaptionTitle');
         const modalCaptionText = document.getElementById('modalCaptionText');
-
+    
         const img = artworks[index].querySelector('img');
         const captionContainer = artworks[index].querySelector('.caption');
         const captionTitle = captionContainer.querySelector('.caption-title').innerText;
         const captionText = captionContainer.innerHTML
             .replace(captionContainer.querySelector('.caption-title').outerHTML, '').trim();
-
+    
         modalImg.src = img.src;
         modalCaptionTitle.innerText = captionTitle;
         modalCaptionText.innerHTML = captionText;
+    
         modal.style.display = 'flex';
+        floatingNav.style.display = 'none'; // 🔴 HIDE buttons
         currentIndex = index;
-    }
-
-    document.querySelectorAll('.artwork img').forEach((img, index) => {
+        }
+    
+        document.querySelectorAll('.artwork img').forEach((img, index) => {
         img.addEventListener('click', () => showModal(index));
-    });
-
-    document.getElementById('modalClose').addEventListener('click', () => {
+        });
+    
+        document.getElementById('modalClose').addEventListener('click', () => {
         document.getElementById('imgModal').style.display = 'none';
-    });
-
-    document.getElementById('modalPrev').addEventListener('click', () => {
+        floatingNav.style.display = 'flex'; // ✅ SHOW buttons again
+        });
+    
+        document.getElementById('modalPrev').addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
         showModal(currentIndex);
-    });
-
-    document.getElementById('modalNext').addEventListener('click', () => {
+        });
+    
+        document.getElementById('modalNext').addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % artworks.length;
         showModal(currentIndex);
-    });
-  </script>
+        });
+    </script>
+  
 
     <script>
         const detailBlocks = document.querySelectorAll("section#philosophy details");
