@@ -355,23 +355,40 @@
             padding: 1rem;
             background-color: #fafafa;
             transition: box-shadow 0.2s ease-in-out;
-            }
+        }
 
-            details[open] {
+        details[open] {
             animation: fadeIn 0.3s ease-in;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            }
+        }
 
-            @keyframes fadeIn {
+        @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-5px); }
             to { opacity: 1; transform: translateY(0); }
-            }
+        }
 
-            details summary {
+        details summary {
             cursor: pointer;
             font-weight: bold;
             color: #0B3D2E;
+            position: relative;
+            padding-right: 1.5rem;
             }
+
+        details summary::after {
+            content: "➕";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #14532D; /* dark green for consistency */
+            transition: transform 0.2s ease;
+        }
+
+        details[open] summary::after {
+            content: "➖";
+        }
     </style>            
 </head>
 <body>
