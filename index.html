@@ -436,6 +436,10 @@
             background-color: #10B981; /* soft teal glow */
             transform: translateY(-2px);
         }
+
+        body.modal-open .floating-nav {
+            display: none !important;
+        }
     </style>            
 </head>
 <body>
@@ -761,53 +765,49 @@
 
     <script>
         const artworks = document.querySelectorAll('.artwork');
-        const floatingNav = document.querySelector('.floating-nav');
-        let currentIndex = 0;
-
-        function showModal(index) {
         const modal = document.getElementById('imgModal');
         const modalImg = document.getElementById('modalImage');
         const modalCaptionTitle = document.getElementById('modalCaptionTitle');
         const modalCaptionText = document.getElementById('modalCaptionText');
-
+        let currentIndex = 0;
+    
+        function showModal(index) {
         const img = artworks[index].querySelector('img');
         const captionContainer = artworks[index].querySelector('.caption');
         const captionTitle = captionContainer.querySelector('.caption-title').innerText;
         const captionText = captionContainer.innerHTML
             .replace(captionContainer.querySelector('.caption-title').outerHTML, '').trim();
-
+    
         modalImg.src = img.src;
         modalCaptionTitle.innerText = captionTitle;
         modalCaptionText.innerHTML = captionText;
-
+    
         modal.style.display = 'flex';
-        floatingNav.style.display = 'none'; // hide when modal is shown
+        document.body.classList.add('modal-open'); // ✅ hide nav buttons
         currentIndex = index;
         }
-
-        // Click to open modal
-        artworks.forEach((art, index) => {
-        art.querySelector('img').addEventListener('click', () => showModal(index));
+    
+        function closeModal() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open'); // ✅ show nav buttons again
+        }
+    
+        document.querySelectorAll('.artwork img').forEach((img, index) => {
+        img.addEventListener('click', () => showModal(index));
         });
-
-        // Close button restores nav
-        document.getElementById('modalClose').addEventListener('click', () => {
-        document.getElementById('imgModal').style.display = 'none';
-        floatingNav.style.display = 'flex'; // restore when modal closes
-        });
-
-        // Navigation does not restore buttons
+    
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+    
         document.getElementById('modalPrev').addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
-        showModal(currentIndex); // stays hidden
+        showModal(currentIndex); // nav still hidden
         });
-
+    
         document.getElementById('modalNext').addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % artworks.length;
-        showModal(currentIndex); // stays hidden
+        showModal(currentIndex); // nav still hidden
         });
     </script>
-    
 
     <script>
         const detailBlocks = document.querySelectorAll("section#philosophy details");
