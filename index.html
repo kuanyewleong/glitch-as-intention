@@ -411,6 +411,7 @@
             bottom: 30px;
             right: 30px;
             display: flex;
+            transition: opacity 0.3s ease;
             flex-direction: column;
             gap: 12px;
             z-index: 999;
@@ -760,7 +761,7 @@
 
     <script>
         const artworks = document.querySelectorAll('.artwork');
-        const floatingNav = document.querySelector('.floating-nav-text');
+        const floatingNav = document.querySelector('.floating-nav');
         let currentIndex = 0;
     
         function showModal(index) {
@@ -780,7 +781,7 @@
         modalCaptionText.innerHTML = captionText;
     
         modal.style.display = 'flex';
-        floatingNav.style.display = 'none'; // 🔴 HIDE buttons
+        floatingNav.style.opacity = '0'; // 🔴 HIDE buttons
         currentIndex = index;
         }
     
@@ -790,7 +791,7 @@
     
         document.getElementById('modalClose').addEventListener('click', () => {
         document.getElementById('imgModal').style.display = 'none';
-        floatingNav.style.display = 'flex'; // ✅ SHOW buttons again
+        floatingNav.style.opacity = '1'; // ✅ SHOW buttons again
         });
     
         document.getElementById('modalPrev').addEventListener('click', () => {
@@ -802,8 +803,7 @@
         currentIndex = (currentIndex + 1) % artworks.length;
         showModal(currentIndex);
         });
-    </script>
-  
+    </script>  
 
     <script>
         const detailBlocks = document.querySelectorAll("section#philosophy details");
